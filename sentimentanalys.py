@@ -1,3 +1,4 @@
+
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import requests
@@ -5,10 +6,16 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import numpy as np
+import shutil
+import os
 
 # Load tokenizer and model
+
+
 tokenizer = AutoTokenizer.from_pretrained('bert-base-multilingual-uncased')
 model = AutoModelForSequenceClassification.from_pretrained('bert-base-multilingual-uncased')
+
+
 
 # Function to scrape reviews from Yelp
 def scrape_reviews(url):
@@ -49,3 +56,4 @@ if reviews:
     print(df)
 else:
     print("No reviews found.")
+
