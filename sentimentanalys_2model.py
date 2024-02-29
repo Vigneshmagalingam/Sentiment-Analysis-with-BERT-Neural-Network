@@ -11,7 +11,7 @@ def scrape_reviews(url):
     try:
         r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
-        regex = re.compile('.*wiI7pd.*')
+        regex = re.compile('.* raw__09f24__T4Ezm.*')
         results = soup.find_all('p', {'class': regex})
         reviews = [result.text for result in results]
         return reviews
@@ -41,7 +41,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
 
-url = 'https://www.google.com/maps/place/Abhiruchi+Multicuisine+Family+Restaurant/@12.9112709,79.0900822,13z/data=!4m10!1m2!2m1!1srestaurants+near+me!3m6!1s0x3bad476f4bf7eb77:0xb5e9ecd5e1d01cfd!8m2!3d12.9584742!4d79.138354!15sChNyZXN0YXVyYW50cyBuZWFyIG1lIgOQAQFaFSITcmVzdGF1cmFudHMgbmVhciBtZZIBCnJlc3RhdXJhbnTgAQA!16s%2Fg%2F1td5vlg9?entry=ttu'
+url = 'https://www.yelp.com/biz/taco-bell-san-francisco-12'
 
 # Scrape reviews
 reviews = scrape_reviews(url)
